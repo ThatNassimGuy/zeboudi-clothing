@@ -4,6 +4,7 @@ import { createStructuredSelector } from "reselect";
 import { selectCartItems } from "../../redux/cart/cart.selectors";
 import { selectCartTotal } from "../../redux/cart/cart.selectors";
 import CheckoutItem from "../../Components/checkout-item/checkout-item.component";
+import StripeCheckoutButton from "../../Components/stripe-button/stripe-button.component";
 
 import "./checkout.styles.scss";
 
@@ -32,6 +33,8 @@ const CheckoutPage = ({ cartItems, total }) => (
     <div className="total">
       <span>TOTAL: ${total}</span>
     </div>
+    <p className="details"> TO TEST STRIPE PAYMENT Use "4242 4242 4242 4242" as card number, "12/34" : date and "123" for CVC :) </p>
+    <StripeCheckoutButton className='strip-button' price={total}></StripeCheckoutButton>
   </div>
 );
 const mapStateToProps = createStructuredSelector({
